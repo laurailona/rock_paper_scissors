@@ -1,0 +1,31 @@
+/*Table of Contents */
+
+/* 0 - Global properties */
+body {
+  margin: 0;
+  text-align: center;
+}
+
+/* 1 - Make-a-move buttons */
+button {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+button img {
+  width: 150px;
+}
+
+/* 2 - Display moves */
+.computers-choice {
+  display: block;
+  float: right;
+  padding: 0 20px;
+}
+
+.my-choice {
+  display: block;
+  float: left;
+  padding: 0 20px;
+}

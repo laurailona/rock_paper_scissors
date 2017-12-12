@@ -1,8 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Rock, Paper, Scissors!</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body>
-  <script src="scripts/main.js"></script>
+    <header>
+    <h1>Rock, Paper, Scissors!</h1>
+    </header>
+    <main>
+      <h2>Round <span id="round-number">0</span>/5</h2>
+      <section class="score-board">
+      <ul>
+        <li>Your score: <span id="my-score">0</span></li>
+        <li>Computer's score: <span id="computer-score">0</span></li>
+      </ul>
+      </section>
+      <section class="result-container">
+        <span id="result"> </span>
+      </section>
+      <section class="my-choice">
+        You chose: <span id="my-move"></span>
+      </section>
+      <section class="computers-choice">
+        Computer chose: <span id="computers-move"></span>
+      </section>
+      <section class="make-a-move">
+      <button id="rock"><img src="images/rock.png" alt="Rock"></button>
+        <button id="paper"><img src="images/paper.png" alt="Paper"></button>
+        <button id="scissors"><img src="images/scissors.png" alt="Scissors"></button>
+      </section>
+    </main>
+    <footer>
+     <p>Icons: "rock", "paper" and "scissors" by Studio Fibonacci from the Noun Project</p>
+    </footer>
+    <script src="scripts/main.js"></script>
   </body>
 </html>
