@@ -10,12 +10,14 @@ body {
 
 /* 1 - Make-a-move buttons */
 .make-a-move {
-  display: block;
-  position: absolute;
-  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 0;
-  margin: 10px;
+  margin: 40px 0 10px 0;
 }
 
 button {
