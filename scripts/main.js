@@ -47,6 +47,19 @@ buttonRock.addEventListener("click", myMoveRock);
 buttonPaper.addEventListener("click", myMovePaper);
 buttonScissors.addEventListener("click", myMoveScissors);
 
+//Accept keyboard input
+window.addEventListener("keydown", function(event) {
+  if(event.keyCode == 49) {
+    buttonRock.click();
+  }
+  else if(event.keyCode == 50) {
+    buttonPaper.click();
+  } 
+  else if(event.keyCode == 51) {
+    buttonScissors.click();
+  }
+});
+
 //THE GAME
 game = function() { 
   //Create Computer's move

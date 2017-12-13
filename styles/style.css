@@ -20,6 +20,11 @@ body {
   margin: 40px 0 10px 0;
 }
 
+.make-a-move p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
 button {
   width: 150px;
   height: 150px;
