@@ -9,6 +9,16 @@ body {
 }
 
 /* 1 - Make-a-move buttons */
+#feed-dog-button {
+  border-radius: 5px;
+  border: 1px black solid;
+  background-color: #ff001a;
+  padding: 15px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 .make-a-move {
   display: flex;
   flex-direction: row;
@@ -25,7 +35,7 @@ body {
   font-weight: 600;
 }
 
-button {
+.make-a-move button {
   width: 150px;
   height: 150px;
   margin: 0 10px;
@@ -36,11 +46,11 @@ button {
   -webkit-transition: 0.5s;
 }
 
-button:focus, .button-focus {
+button:focus,.make-a-move .button-focus {
   background-color: #ff001a;
 }
 
-button:active, .button-active {
+button:active,.make-a-move .button-active {
   background-color: #fdff00;
   transition: 0.2s;
   -webkit-transition: 0.2s;
@@ -73,4 +83,59 @@ ul {
 
 .icons {
   font-size: 36px;
+}
+
+/* Allow cheating - Overlay */
+
+#cheat-overlay, .overlay-flex-container {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 2;
+  color: #fff;
+}
+
+.overlay-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-flex-item {
+  margin: 10px;
+}
+
+#cheat-attribution {
+  display: none;
+}
+
+.my-choice {
+  position: relative;
+}
+
+#cheat-logo {
+  display: none;
+  z-index: 2;
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#cheat-logo img {
+  width: 38px;
+}
+
+.bodo-image {
+  width: 250px;
+  border-radius: 12px;
+  border: 1px solid black;
 }
