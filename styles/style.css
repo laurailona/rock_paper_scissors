@@ -36,11 +36,11 @@ button {
   -webkit-transition: 0.5s;
 }
 
-button:focus {
+button:focus, .button-focus {
   background-color: #ff001a;
 }
 
-button:active {
+button:active, .button-active {
   background-color: #fdff00;
   transition: 0.2s;
   -webkit-transition: 0.2s;

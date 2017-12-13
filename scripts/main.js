@@ -1,3 +1,4 @@
+"use strict"
 var rpsArray = ["rock", "paper", "scissors"]
 var computerMove = "";
 var result;
@@ -49,14 +50,33 @@ buttonScissors.addEventListener("click", myMoveScissors);
 
 //Accept keyboard input
 window.addEventListener("keydown", function(event) {
+  let buttonName;
+  let changeColor = function() {;
+    let makeButtonRed = function() {
+      buttonName.classList.remove("button-active");
+      buttonName.classList.add("button-focus");
+    }
+    let makeButtonGrey = function() {
+      buttonName.classList.remove("button-focus");
+    }
+    buttonName.classList.add("button-active");
+    setTimeout(makeButtonRed, 200);
+    setTimeout(makeButtonGrey, 700);
+  }
   if(event.keyCode == 49) {
-    buttonRock.click();
+    buttonName = buttonRock;
+    buttonName.click();
+    changeColor();
   }
   else if(event.keyCode == 50) {
-    buttonPaper.click();
+    buttonName = buttonPaper;
+    buttonName.click();
+    changeColor();
   } 
   else if(event.keyCode == 51) {
-    buttonScissors.click();
+    buttonName = buttonScissors;
+    buttonName.click();
+    changeColor();
   }
 });
 
@@ -108,7 +128,8 @@ game = function() {
   //Display result
   roundNumberElement.textContent = counter;
   resultElement.textContent = result;
-  //Show icons fa-hand-rock-o fa-hand-paper-o fa-hand-rock-o - There is probably a better way of doing this
+  
+  //Show icons - There is probably a better way of doing this
   let changeMyIcon = function() {
     if (myMove == "rock") {
       myChoiceIcon.classList.remove("fa-spinner");
@@ -152,9 +173,11 @@ game = function() {
 
   changeMyIcon();
   changeComputerIcon();
+
   //Display current score
   myScoreElement.textContent = myScore;
   computerScoreElement.textContent = computerScore;
+  
   //Determine and display the winner, reset the score and counter
   if (counter == 5) {
     if (myScore > computerScore) {
