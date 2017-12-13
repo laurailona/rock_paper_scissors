@@ -4,28 +4,66 @@
 body {
   margin: 0;
   text-align: center;
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* 1 - Make-a-move buttons */
-button {
-  width: 200px;
-  height: 200px;
+.make-a-move {
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  padding: 0;
   margin: 10px;
 }
 
-button img {
+button {
   width: 150px;
+  height: 150px;
+  margin: 0 10px;
+  border-radius: 50%;
+  border: 1px black solid;
+  background-color: #ddd;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+}
+
+button:focus {
+  background-color: #ff001a;
+}
+
+button:active {
+  background-color: #fdff00;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
+}
+
+button img {
+  width: 100px;
 }
 
 /* 2 - Display moves */
-.computers-choice {
-  display: block;
-  float: right;
-  padding: 0 20px;
+/* 3 - Show Result */
+ul {
+  list-style: none;
 }
 
-.my-choice {
-  display: block;
-  float: left;
-  padding: 0 20px;
+.result-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #00bfff;
+  min-height: 130px;
+  color: #fff;
+}
+.computers-choice, .my-choice {
+  margin: 10px 20px;
+}
+
+.icons {
+  font-size: 36px;
 }
