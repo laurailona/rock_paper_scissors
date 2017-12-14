@@ -85,9 +85,9 @@ ul {
   font-size: 36px;
 }
 
-/* Allow cheating - Overlay */
+/* Overlays */
 
-#cheat-overlay, .overlay-flex-container {
+#cheat-overlay, #no-cheat-overlay, .overlay-flex-container {
   position: fixed;
   display: none;
   width: 100%;
@@ -138,4 +138,29 @@ ul {
   width: 250px;
   border-radius: 12px;
   border: 1px solid black;
+}
+
+.fade-out {
+  visibility: none;
+  opacity: 0;
+}
+
+.fade-in {
+  visibility: visible;
+  opacity: 1;
+  transition: 1s;
+}
+
+.no-cheat-image {
+  border: none;
+}
+
+.play-again {
+  background-color: #ff001a;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 15px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 48px;
 }

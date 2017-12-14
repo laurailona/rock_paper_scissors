@@ -6,7 +6,6 @@ var myMove = "Rock";
 var computerScore = 0;
 var myScore = 0;
 var scoreBoard = "";
-var winner = "";
 var computerPlay;
 var game;
 var counter = 1;
@@ -25,6 +24,11 @@ var bodoIcon = document.getElementById("cheat-logo");
 var cheatAttribution = document.getElementById("cheat-attribution");
 var cheatOverlay = document.getElementById("cheat-overlay");
 var feedDogButton = document.getElementById("feed-dog-button");
+var youCheatedImage = document.getElementById("you-cheated-image");
+var noCheatOverlay = document.getElementById("no-cheat-overlay");
+var noCheatHeading = document.getElementById("no-cheat-heading");
+var noCheatText = document.getElementById("no-cheat-text");
+var noCheatImage = document.getElementById("no-cheat-img");
 
 //Make-A-Move Buttons
 var buttonRock = document.getElementById("rock");
@@ -203,35 +207,71 @@ game = function() {
   computerScoreElement.textContent = computerScore;
   
   //Determine and display the winner, reset the score and counter
-  if (counter == 5) {
+  if(counter == 5) {
     let cheaterWins = false;
-    if (hasCheated && myScore > computerScore) {
+    
+    if(hasCheated){
+      if(myScore > computerScore) {
       cheaterWins = true;
       cheatOverlay.setAttribute("style", "display: block");
+      let changeCheaterImage = function() {
+        youCheatedImage.setAttribute("src", "images/bodo.jpg");
+        youCheatedImage.setAttribute("alt", "Bodo the Dog");
+      }
+      let fadeInImage = function() {
+        youCheatedImage.classList.add("fade-in");
+      }
+      let fadeOutImage = function() {
+        youCheatedImage.classList.add("fade-out");
+      }
+      setTimeout(fadeOutImage, 1000);
+      setTimeout(changeCheaterImage, 1100);
+      setTimeout(fadeInImage, 1100);
+    }} 
+    else if(!hasCheated){
+        noCheatOverlay.setAttribute("style", "display: block");
+        let hideAll = function() {
+          noCheatOverlay.setAttribute("style", "display: none");
+        }
+        noCheatOverlay.addEventListener("click", hideAll);
+        document.addEventListener("keydown", hideAll);
+        
+        if(myScore > computerScore){
+          noCheatHeading.textContent = "You won the game!";
+          noCheatText.textContent = "That silly computer can't beat a genius like you!";
+          noCheatImage.setAttribute("src", "images/celebration.png");
+          noCheatImage.setAttribute("alt", "Celebration");
+        }
+        else if(computerScore > myScore){
+          noCheatHeading.textContent = "Noooo! You lost!";
+          noCheatText.textContent = "I'm sure that silly computer just got lucky. You'll beat him next time!";
+          noCheatImage.setAttribute("src", "images/pirate_cat.png");
+          noCheatImage.setAttribute("alt", "Beat-Up Cat");
+        }
+        else if(myScore == computerScore){
+          noCheatHeading.textContent = "It's a draw!";
+          noCheatText.textContent = "You were so close! You'll beat that silly computer next time.";
+          noCheatImage.setAttribute("src", "images/cat_bum.png");
+          noCheatImage.setAttribute("alt", "A cat's bum");
+        }
     }
-    if (myScore > computerScore) {
-      winner = "Congratulations! You won the game!";
-    }
-    else if (myScore == computerScore) {
-      winner = "It's a draw. This game has no winner!";
-    }
-    else if (myScore < computerScore) {
-      winner = "You lost the game!";
-    }
-    if(!cheaterWins){
-      alert(winner);
-    }
+    
     counter = 0;
     myScore = 0;
     computerScore = 0;
     hasCheated = false;
   }
-  if (hasCheated) {
+  if(hasCheated) {
     cheatAttribution.setAttribute("style", "display: block");
   }
-
-  let hideOverlay = function() {
+  
+  //Hide the overlay again
+  var hideOverlay = function() {
     cheatOverlay.setAttribute("style", "display: none");
+    youCheatedImage.setAttribute("src", "images/warzel.jpg");
+    youCheatedImage.setAttribute("alt", "A happy Warzel");
+    youCheatedImage.classList.remove("fade-in");
+    youCheatedImage.classList.remove("fade-out");
   }
   feedDogButton.addEventListener("click", hideOverlay);
-};
+}
