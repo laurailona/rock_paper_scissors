@@ -11,6 +11,9 @@ var game;
 var counter = 1;
 var hasCheated = false;
 
+//sounds
+var audio = new Audio("audio/dog-woof.mp3");
+
 //DOM-stuff
 var roundNumberElement = document.getElementById("round-number");
 var myScoreElement = document.getElementById("my-score");
@@ -89,8 +92,11 @@ window.addEventListener("keydown", function(event) {
     changeColor();
   }
   else if(event.keyCode == 66) {
+    audio.pause();
+    audio.currentTime = 0;
     myMove = "bodo";
     hasCheated = "true";
+    audio.play();
     game();
     counter++;
   }
