@@ -235,13 +235,6 @@ game = function() {
       setTimeout(fadeInImage, 1100);
     }} 
     else if(!hasCheated){
-        noCheatOverlay.setAttribute("style", "display: block");
-        let hideAll = function() {
-          noCheatOverlay.setAttribute("style", "display: none");
-        }
-        noCheatOverlay.addEventListener("click", hideAll);
-        document.addEventListener("keydown", hideAll);
-        
         if(myScore > computerScore){
           noCheatHeading.textContent = "You won the game!";
           noCheatText.textContent = "That silly computer can't beat a genius like you!";
@@ -260,6 +253,12 @@ game = function() {
           noCheatImage.setAttribute("src", "images/cat_bum.png");
           noCheatImage.setAttribute("alt", "A cat's bum");
         }
+        noCheatOverlay.setAttribute("style", "display: block");
+        let hideAll = function() {
+          noCheatOverlay.setAttribute("style", "display: none");
+        }
+        noCheatOverlay.addEventListener("click", hideAll);
+        document.addEventListener("keydown", hideAll);
     }
     
     counter = 0;
