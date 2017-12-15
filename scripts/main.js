@@ -1,11 +1,7 @@
-"use strict"
-var rpsArray = ["rock", "paper", "scissors"]
-var computerMove = "";
-var result;
-var myMove = "Rock";
+"use strict";
+var myMove = "";
 var computerScore = 0;
 var myScore = 0;
-var scoreBoard = "";
 var computerPlay;
 var game;
 var counter = 1;
@@ -68,14 +64,14 @@ window.addEventListener("keydown", function(event) {
     let makeButtonRed = function() {
       buttonName.classList.remove("button-active");
       buttonName.classList.add("button-focus");
-    }
+    };
     let makeButtonGrey = function() {
       buttonName.classList.remove("button-focus");
-    }
+    };
     buttonName.classList.add("button-active");
     setTimeout(makeButtonRed, 200);
     setTimeout(makeButtonGrey, 700);
-  }
+  };
   if(event.keyCode == 49) {
     buttonName = buttonRock;
     buttonName.click();
@@ -102,17 +98,20 @@ window.addEventListener("keydown", function(event) {
   }
 });
 
-
 //THE GAME
 game = function() { 
+
   //Create Computer's move
+  let computerMove = "";
   computerPlay = function() {
+    let rpsArray = ["rock", "paper", "scissors"];
     let randomNumber = Math.floor(Math.random() * 3);
     computerMove = rpsArray[randomNumber];
-  }
+  };
   computerPlay();
 
   //Determine result
+  let result;
   if (myMove == "bodo") {
     result = `You win! Bodo eats the ${computerMove}!`;
     myScore++;
@@ -183,7 +182,7 @@ game = function() {
       myChoiceIcon.classList.remove("fa-hand-scissors-o");
       myChoiceIcon.classList.remove("fa-hand-paper-o");
     }
-  }
+  };
   let changeComputerIcon = function() {
     if (computerMove == "rock") {
       computerChoiceIcon.classList.remove("fa-spinner");
@@ -203,7 +202,7 @@ game = function() {
       computerChoiceIcon.classList.remove("fa-hand-rock-o");
       computerChoiceIcon.classList.add("fa-hand-scissors-o");
     }
-  }
+  };
 
   changeMyIcon();
   changeComputerIcon();
@@ -214,22 +213,20 @@ game = function() {
   
   //Determine and display the winner, reset the score and counter
   if(counter == 5) {
-    let cheaterWins = false;
     
     if(hasCheated){
       if(myScore > computerScore) {
-      cheaterWins = true;
       cheatOverlay.setAttribute("style", "display: block");
       let changeCheaterImage = function() {
         youCheatedImage.setAttribute("src", "images/bodo.jpg");
         youCheatedImage.setAttribute("alt", "Bodo the Dog");
-      }
+      };
       let fadeInImage = function() {
         youCheatedImage.classList.add("fade-in");
-      }
+      };
       let fadeOutImage = function() {
         youCheatedImage.classList.add("fade-out");
-      }
+      };
       setTimeout(fadeOutImage, 1000);
       setTimeout(changeCheaterImage, 1100);
       setTimeout(fadeInImage, 1100);
@@ -256,7 +253,7 @@ game = function() {
         noCheatOverlay.setAttribute("style", "display: block");
         let hideAll = function() {
           noCheatOverlay.setAttribute("style", "display: none");
-        }
+        };
         noCheatOverlay.addEventListener("click", hideAll);
         document.addEventListener("keydown", hideAll);
     }
@@ -277,6 +274,6 @@ game = function() {
     youCheatedImage.setAttribute("alt", "A happy Warzel");
     youCheatedImage.classList.remove("fade-in");
     youCheatedImage.classList.remove("fade-out");
-  }
+  };
   feedDogButton.addEventListener("click", hideOverlay);
-}
+};
